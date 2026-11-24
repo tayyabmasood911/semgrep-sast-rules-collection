@@ -1,0 +1,14 @@
+rules:
+  - id: python-insecure-deserialization-pickle
+    languages: [python]
+    severity: ERROR
+    message: "Unpickling untrusted data can lead to arbitrary remote code execution. Use safe serialization formats like JSON."
+    metadata:
+      cwe: "CWE-502: Deserialization of Untrusted Data"
+      owasp: "A08:2021 - Software and Data Integrity Failures"
+      category: security
+    pattern-either:
+      - pattern: pickle.loads(...)
+      - pattern: pickle.load(...)
+      - pattern: _pickle.loads(...)
+      - pattern: yaml.load($DATA, Loader=yaml.Loader)

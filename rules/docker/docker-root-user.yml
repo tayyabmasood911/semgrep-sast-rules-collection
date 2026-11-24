@@ -1,0 +1,16 @@
+rules:
+  - id: dockerfile-running-as-root
+    languages: [dockerfile]
+    severity: WARNING
+    message: "Dockerfile does not declare a non-root USER before execution commands. Containers should run as non-privileged users."
+    metadata:
+      cwe: "CWE-250: Execution with Unnecessary Privileges"
+      owasp: "A04:2021 - Insecure Design"
+      category: security
+    patterns:
+      - pattern: |
+          ENTRYPOINT ...
+      - pattern-not-inside: |
+          USER $USER
+          ...
+          ENTRYPOINT ...

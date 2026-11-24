@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="680" fill="#ffffff"/>
+
+  <!-- Top Title Bar -->
+  <rect x="40" y="24" width="1120" height="64" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#softShadow)"/>
+  <circle cx="72" cy="56" r="14" fill="#0284c7" opacity="0.12"/>
+  <path d="M 66 56 L 70 60 L 78 52" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="62" fill="#0f172a" font-size="20" font-weight="700" letter-spacing="-0.3">Enterprise Semgrep SAST Custom Rules Collection &amp; Scanning Architecture</text>
+  
+  <rect x="860" y="42" width="135" height="28" rx="14" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+  <text x="874" y="60" fill="#b91c1c" font-size="11" font-weight="700">OWASP TOP 10:2021</text>
+  <rect x="1005" y="42" width="135" height="28" rx="14" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1022" y="60" fill="#1d4ed8" font-size="11" font-weight="700">MULTI-LANG SAST</text>
+
+  <!-- COLUMN 1: Ingestion & Polyglot Source Targets -->
+  <rect x="40" y="112" width="250" height="520" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#softShadow)"/>
+  <path d="M 40 122 A 10 10 0 0 1 50 112 L 280 112 A 10 10 0 0 1 290 122 L 290 156 L 40 156 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="141" fill="#0f172a" font-size="13" font-weight="700">1. SOURCE TARGETS</text>
+
+  <rect x="56" y="174" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="70" y="200" fill="#0f172a" font-size="13" font-weight="700">Terraform &amp; Cloud IaC</text>
+  <text x="70" y="222" fill="#64748b" font-size="11">HCL, AWS Resources, SGs</text>
+  <rect x="70" y="236" width="130" height="20" rx="4" fill="#e0e7ff"/>
+  <text x="78" y="250" fill="#4338ca" font-size="10" font-weight="600">S3, IAM, SG Ingress</text>
+
+  <rect x="56" y="286" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="70" y="312" fill="#0f172a" font-size="13" font-weight="700">Container Dockerfiles</text>
+  <text x="70" y="334" fill="#64748b" font-size="11">Base images &amp; User directives</text>
+  <rect x="70" y="348" width="140" height="20" rx="4" fill="#f0fdf4"/>
+  <text x="78" y="362" fill="#15803d" font-size="10" font-weight="600">Root &amp; Socket Mounts</text>
+
+  <rect x="56" y="398" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="70" y="424" fill="#0f172a" font-size="13" font-weight="700">Python &amp; Go Backends</text>
+  <text x="70" y="446" fill="#64748b" font-size="11">Microservices &amp; REST APIs</text>
+  <rect x="70" y="460" width="140" height="20" rx="4" fill="#fef3c7"/>
+  <text x="78" y="474" fill="#b45309" font-size="10" font-weight="600">SQLi &amp; Command Injection</text>
+
+  <rect x="56" y="510" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="70" y="536" fill="#0f172a" font-size="13" font-weight="700">Git Repositories &amp; CI</text>
+  <text x="70" y="558" fill="#64748b" font-size="11">Configuration &amp; Secrets scan</text>
+  <text x="70" y="578" fill="#dc2626" font-size="10" font-weight="600">AWS / GitHub / Private Keys</text>
+
+  <!-- Flow Arrow 1 to 2 -->
+  <line x1="290" y1="372" x2="330" y2="372" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- COLUMN 2: Semgrep AST & Pattern Engine -->
+  <rect x="330" y="112" width="260" height="520" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#softShadow)"/>
+  <path d="M 330 122 A 10 10 0 0 1 340 112 L 580 112 A 10 10 0 0 1 590 122 L 590 156 L 330 156 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="348" y="141" fill="#0f172a" font-size="13" font-weight="700">2. AST &amp; PATTERN ENGINE</text>
+
+  <rect x="348" y="174" width="224" height="135" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1"/>
+  <text x="362" y="200" fill="#0369a1" font-size="14" font-weight="700">Tree-Sitter Syntax Parsing</text>
+  <text x="362" y="222" fill="#0f172a" font-size="11">Concrete Syntax Tree (CST)</text>
+  <text x="362" y="240" fill="#64748b" font-size="11">• Semantic equivalence matching</text>
+  <text x="362" y="258" fill="#64748b" font-size="11">• Metavariable binding ($VAR)</text>
+  <text x="362" y="276" fill="#64748b" font-size="11">• Ellipsis operator (...) matching</text>
+  <rect x="362" y="284" width="135" height="16" rx="3" fill="#0284c7"/>
+  <text x="368" y="295" fill="#ffffff" font-size="9" font-weight="700">ZERO FALSE-POSITIVES</text>
+
+  <rect x="348" y="325" width="224" height="135" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="362" y="351" fill="#0f172a" font-size="13" font-weight="700">Taint &amp; Dataflow Engine</text>
+  <text x="362" y="373" fill="#64748b" font-size="11">Inter-procedural propagation</text>
+  <text x="362" y="393" fill="#475569" font-size="11">• pattern-inside constraints</text>
+  <text x="362" y="411" fill="#475569" font-size="11">• pattern-not-inside filters</text>
+  <rect x="362" y="426" width="140" height="20" rx="4" fill="#dcfce7"/>
+  <text x="370" y="440" fill="#15803d" font-size="10" font-weight="600">Deterministic Taint Sinks</text>
+
+  <rect x="348" y="476" width="224" height="130" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="362" y="502" fill="#0f172a" font-size="13" font-weight="700">Generic Regex Scanner</text>
+  <text x="362" y="524" fill="#64748b" font-size="11">Entropy &amp; Pattern analysis</text>
+  <text x="362" y="544" fill="#64748b" font-size="11">• AWS Session &amp; Secret tokens</text>
+  <text x="362" y="564" fill="#64748b" font-size="11">• Cryptographic private keys</text>
+  <text x="362" y="586" fill="#0284c7" font-size="10" font-weight="600">Fast CI Pre-Commit Hooks</text>
+
+  <!-- Flow Arrow 2 to 3 -->
+  <line x1="590" y1="372" x2="630" y2="372" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- COLUMN 3: Custom Rule Packs -->
+  <rect x="630" y="112" width="250" height="520" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#softShadow)"/>
+  <path d="M 630 122 A 10 10 0 0 1 640 112 L 870 112 A 10 10 0 0 1 880 122 L 880 156 L 630 156 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="646" y="141" fill="#0f172a" font-size="13" font-weight="700">3. CUSTOM RULE PACKS</text>
+
+  <rect x="646" y="174" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="660" y="200" fill="#0f172a" font-size="13" font-weight="700">rules/terraform/</text>
+  <text x="660" y="220" fill="#dc2626" font-size="10" font-weight="600">• S3 Public Access Block</text>
+  <text x="660" y="238" fill="#dc2626" font-size="10" font-weight="600">• SG Ingress 0.0.0.0/0</text>
+  <text x="660" y="256" fill="#ea580c" font-size="10" font-weight="600">• Wildcard IAM Actions</text>
+
+  <rect x="646" y="286" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="660" y="312" fill="#0f172a" font-size="13" font-weight="700">rules/docker/</text>
+  <text x="660" y="332" fill="#ea580c" font-size="10" font-weight="600">• Non-root User Requirement</text>
+  <text x="660" y="350" fill="#ea580c" font-size="10" font-weight="600">• Unpinned :latest Base Images</text>
+  <text x="660" y="368" fill="#dc2626" font-size="10" font-weight="600">• Docker.sock Socket Mount</text>
+
+  <rect x="646" y="398" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="660" y="424" fill="#0f172a" font-size="13" font-weight="700">rules/python/ &amp; rules/go/</text>
+  <text x="660" y="444" fill="#dc2626" font-size="10" font-weight="600">• SQL Injection in format strings</text>
+  <text x="660" y="462" fill="#dc2626" font-size="10" font-weight="600">• OS Command Execution (shell=True)</text>
+  <text x="660" y="480" fill="#dc2626" font-size="10" font-weight="600">• Insecure Pickle &amp; Weak Hashes</text>
+
+  <rect x="646" y="510" width="218" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="660" y="536" fill="#0f172a" font-size="13" font-weight="700">rules/secrets/</text>
+  <text x="660" y="556" fill="#dc2626" font-size="10" font-weight="600">• AWS AKIA / ASIA Key Detection</text>
+  <text x="660" y="574" fill="#dc2626" font-size="10" font-weight="600">• GitHub PAT (ghp_*) Leaks</text>
+  <text x="660" y="592" fill="#dc2626" font-size="10" font-weight="600">• JWT Hardcoded HMAC Secrets</text>
+
+  <!-- Flow Arrow 3 to 4 -->
+  <line x1="880" y1="372" x2="920" y2="372" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- COLUMN 4: CI/CD Enforcement & Reporting -->
+  <rect x="920" y="112" width="240" height="520" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#softShadow)"/>
+  <path d="M 920 122 A 10 10 0 0 1 930 112 L 1150 112 A 10 10 0 0 1 1160 122 L 1160 156 L 920 156 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="936" y="141" fill="#0f172a" font-size="13" font-weight="700">4. CI ENFORCEMENT</text>
+
+  <rect x="936" y="174" width="208" height="110" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="950" y="200" fill="#0f172a" font-size="13" font-weight="700">SARIF v2.1.0 Export</text>
+  <text x="950" y="222" fill="#64748b" font-size="11">github/codeql-action integration</text>
+  <text x="950" y="242" fill="#475569" font-size="11">Security tab alerts &amp;</text>
+  <text x="950" y="258" fill="#475569" font-size="11">Inline Pull Request diff reviews</text>
+  <text x="950" y="272" fill="#0284c7" font-size="10" font-weight="600">semgrep --sarif</text>
+
+  <rect x="936" y="300" width="208" height="100" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="950" y="326" fill="#0f172a" font-size="13" font-weight="700">Pre-Commit Integration</text>
+  <text x="950" y="348" fill="#64748b" font-size="11">Local git developer gate</text>
+  <text x="950" y="368" fill="#16a34a" font-size="11" font-weight="600">Sub-second Local Feedback</text>
+  <text x="950" y="384" fill="#475569" font-size="10">Blocks uncommitted leaks</text>
+
+  <rect x="936" y="416" width="208" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="950" y="442" fill="#0f172a" font-size="13" font-weight="700">Compliance Mapping</text>
+  <text x="950" y="464" fill="#64748b" font-size="11">NIST 800-53, SOC2, PCI-DSS</text>
+  <text x="950" y="484" fill="#475569" font-size="11">Tagged with CWE &amp; OWASP</text>
+  <text x="950" y="498" fill="#0284c7" font-size="10" font-weight="600">Audit-Ready Telemetry</text>
+
+  <rect x="936" y="528" width="208" height="78" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="950" y="554" fill="#0f172a" font-size="13" font-weight="700">Zero-Tolerance CI Gate</text>
+  <text x="950" y="576" fill="#dc2626" font-size="11" font-weight="600">--error on ERROR rules</text>
+  <text x="950" y="592" fill="#64748b" font-size="10">Halts pipeline on finding</text>
+</svg>

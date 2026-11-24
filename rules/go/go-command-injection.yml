@@ -1,0 +1,13 @@
+rules:
+  - id: go-command-injection-shell
+    languages: [go]
+    severity: ERROR
+    message: "Invoking system shell with formatted string arguments enables command injection vulnerabilities."
+    metadata:
+      cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command"
+      owasp: "A03:2021 - Injection"
+      category: security
+    pattern-either:
+      - pattern: exec.Command("sh", "-c", fmt.Sprintf("...", ...))
+      - pattern: exec.Command("bash", "-c", fmt.Sprintf("...", ...))
+      - pattern: exec.CommandContext($CTX, "sh", "-c", fmt.Sprintf("...", ...))

@@ -1,0 +1,12 @@
+rules:
+  - id: dockerfile-unpinned-latest-base-image
+    languages: [dockerfile]
+    severity: WARNING
+    message: "Base image uses mutable ':latest' tag or unpinned version. Pin exact digest or semver tag for build immutability."
+    metadata:
+      cwe: "CWE-1104: Use of Unmaintained Third Party Components"
+      owasp: "A08:2021 - Software and Data Integrity Failures"
+      category: security
+    pattern-either:
+      - pattern: FROM $IMAGE:latest
+      - pattern: FROM $IMAGE:latest AS $STAGE

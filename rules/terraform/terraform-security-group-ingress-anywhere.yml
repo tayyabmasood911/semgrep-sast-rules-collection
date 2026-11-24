@@ -1,0 +1,23 @@
+rules:
+  - id: terraform-security-group-ingress-anywhere
+    languages: [hcl, terraform]
+    severity: ERROR
+    message: "Security group ingress rule permits unrestricted access (0.0.0.0/0) to sensitive service port. Restrict CIDR blocks."
+    metadata:
+      cwe: "CWE-284: Improper Access Control"
+      owasp: "A01:2021 - Broken Access Control"
+      category: security
+    pattern-either:
+      - pattern: |
+          ingress {
+            ...
+            cidr_blocks = ["0.0.0.0/0"]
+            ...
+          }
+      - pattern: |
+          resource "aws_security_group_rule" "..." {
+            ...
+            type = "ingress"
+            cidr_blocks = ["0.0.0.0/0"]
+            ...
+          }

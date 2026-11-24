@@ -1,0 +1,20 @@
+rules:
+  - id: terraform-iam-wildcard-action-privilege-escalation
+    languages: [hcl, terraform]
+    severity: WARNING
+    message: "IAM policy statement grants full wildcard actions ('*'). Adhere to the principle of least privilege."
+    metadata:
+      cwe: "CWE-250: Execution with Unnecessary Privileges"
+      owasp: "A01:2021 - Broken Access Control"
+      category: security
+    patterns:
+      - pattern-inside: |
+          data "aws_iam_policy_document" "..." {
+            ...
+          }
+      - pattern: |
+          statement {
+            ...
+            actions = ["*"]
+            ...
+          }

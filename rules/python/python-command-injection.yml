@@ -1,0 +1,14 @@
+rules:
+  - id: python-command-injection-shell-true
+    languages: [python]
+    severity: ERROR
+    message: "Subprocess invocation with shell=True and dynamic input allows arbitrary remote command execution."
+    metadata:
+      cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command"
+      owasp: "A03:2021 - Injection"
+      category: security
+    pattern-either:
+      - pattern: subprocess.Popen($CMD, ..., shell=True, ...)
+      - pattern: subprocess.run($CMD, ..., shell=True, ...)
+      - pattern: subprocess.call($CMD, ..., shell=True, ...)
+      - pattern: os.system($CMD)

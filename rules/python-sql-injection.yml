@@ -1,7 +1,0 @@
-rules:
-  - id: raw-sql-format-string
-    languages: [python]
-    severity: ERROR
-    message: "Potential SQL injection: raw formatted SQL query detected."
-    pattern: |
-      cursor.execute(f"SELECT ...")

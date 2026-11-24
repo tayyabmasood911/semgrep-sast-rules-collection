@@ -1,0 +1,13 @@
+rules:
+  - id: dockerfile-sensitive-socket-mount
+    languages: [dockerfile]
+    severity: ERROR
+    message: "Mounting or copying docker.sock grants container root-level control over the host Docker daemon."
+    metadata:
+      cwe: "CWE-250: Execution with Unnecessary Privileges"
+      owasp: "A01:2021 - Broken Access Control"
+      category: security
+    pattern-either:
+      - pattern: COPY ... /var/run/docker.sock ...
+      - pattern: ADD ... /var/run/docker.sock ...
+      - pattern: VOLUME ... /var/run/docker.sock ...
